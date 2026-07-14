@@ -18,14 +18,7 @@ terraform {
 
   }
 
-  backend "azurerm" {
-    resource_group_name  = "rg-alz-ark-state-australiaeast-001"
-    storage_account_name = "stoalzarkaus001hdaf"
-    container_name       = "ark-tfstate"
-    key                  = "az-xdr-tfstate"
-    use_azuread_auth     = true
-    subscription_id      = "c8aeb55f-a6c4-4975-b362-2a1495d51b30"
-  }
+  backend "local" {}
 
 }
 
