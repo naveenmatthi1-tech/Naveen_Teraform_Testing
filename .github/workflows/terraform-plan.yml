@@ -26,6 +26,7 @@ permissions:
 env:
   TF_VERSION: "1.15.7"
   TF_WORKING_DIR: terraform
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"
 
 jobs:
   plan:

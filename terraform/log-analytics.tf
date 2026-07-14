@@ -1,8 +1,14 @@
 locals {
   use_existing_log_analytics_workspace = var.existing_log_analytics_workspace_name != null
+  resource_group_name                  = var.resource_group_name
+  resource_group_id                    = data.azurerm_resource_group.target.id
 
   sentinel_workspace_name = local.use_existing_log_analytics_workspace ? data.azurerm_log_analytics_workspace.sentinel[0].name : azurerm_log_analytics_workspace.sentinel[0].name
   sentinel_workspace_id   = local.use_existing_log_analytics_workspace ? data.azurerm_log_analytics_workspace.sentinel[0].id : azurerm_log_analytics_workspace.sentinel[0].id
+}
+
+data "azurerm_resource_group" "target" {
+  name = var.resource_group_name
 }
 
 data "azurerm_log_analytics_workspace" "sentinel" {
