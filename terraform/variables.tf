@@ -48,7 +48,7 @@ variable "existing_log_analytics_workspace_name" {
 variable "log_analytics_workspace_name" {
   description = "Log analytics workspace name."
   type        = string
-  default     = "LAW-Sentinel-AUSouth-prd"
+  default     = "LAW-Sentinel-teraformtesting-prd"
 }
 
 variable "log_analytics_workspace_retention_in_days" {
@@ -60,7 +60,7 @@ variable "log_analytics_workspace_retention_in_days" {
 variable "total_workspace_retention_in_days" {
   description = "Total retention target (analytics + archive) for existing workspace."
   type        = number
-  default     = 730
+  default     = 180
 }
 
 variable "sentinel_diag_name" {
