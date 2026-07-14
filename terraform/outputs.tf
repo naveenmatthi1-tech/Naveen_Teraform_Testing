@@ -29,11 +29,6 @@ output "eventhub_send_connection_string" {
   sensitive   = true
 }
 
-output "ampls_id" {
-  description = "AMPLS resource ID for Sentinel workspace private access."
-  value       = azurerm_monitor_private_link_scope.sentinel.id
-}
-
 output "playbook_resource_ids" {
   description = "Logic App playbook resource IDs."
   value = {
