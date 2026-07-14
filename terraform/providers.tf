@@ -22,12 +22,18 @@ terraform {
 
 }
 
+provider "azuread" {
+  tenant_id = var.tenant_id
+  use_cli   = true
+}
+
 provider "azurerm" {
   resource_provider_registrations = "none"
   features {}
 
   subscription_id = var.subscription_id
   tenant_id       = var.tenant_id
+  use_cli         = true
 }
 
 provider "azurerm" {
@@ -36,6 +42,7 @@ provider "azurerm" {
   features {}
   subscription_id = "4323891c-3347-4e0a-b9c9-27a2b8355033"
   tenant_id       = var.tenant_id
+  use_cli         = true
 }
 
 provider "azurerm" {
@@ -44,6 +51,7 @@ provider "azurerm" {
   features {}
   subscription_id = "9984ba28-a98c-459b-a986-79ea6793e533"
   tenant_id       = var.tenant_id
+  use_cli         = true
 }
 
 provider "azapi" {
