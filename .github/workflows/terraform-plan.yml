@@ -23,7 +23,7 @@ permissions:
 
 env:
   TF_VERSION: "1.9.8"
-  TF_WORKING_DIR: .
+  TF_WORKING_DIR: terraform
 
 jobs:
   plan:
@@ -62,6 +62,7 @@ jobs:
         -backend-config="key=${{ secrets.STATE_KEY }}"
 
     - name: Terraform Format
+      working-directory: ${{ env.TF_WORKING_DIR }}
       run: terraform fmt -check -recursive
 
     - name: Terraform Validate
@@ -84,7 +85,7 @@ jobs:
       with:
         name: tfplan
         path: |
-          tfplan
-          *.tf
-          *.tfvars
-          modules/
+          terraform/tfplan
+          terraform/*.tf
+          terraform/*.tfvars
+          terraform/modules/
