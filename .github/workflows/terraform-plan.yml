@@ -5,14 +5,16 @@ on:
     branches:
       - main
     paths:
-      - 'terraform/**'
+      - 'terraform/**/*.tf'
+      - 'terraform/**/*.tfvars'
       - '.github/workflows/terraform-plan.yml'
 
   pull_request:
     branches:
       - main
     paths:
-      - 'terraform/**'
+      - 'terraform/**/*.tf'
+      - 'terraform/**/*.tfvars'
       - '.github/workflows/terraform-plan.yml'
 
   workflow_dispatch:
@@ -22,7 +24,7 @@ permissions:
   contents: read
 
 env:
-  TF_VERSION: "1.9.8"
+  TF_VERSION: "1.15.7"
   TF_WORKING_DIR: terraform
 
 jobs:
