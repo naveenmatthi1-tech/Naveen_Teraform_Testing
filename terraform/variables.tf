@@ -1,6 +1,7 @@
 variable "subscription_id" {
   description = "Security subscription ID for XDR and Sentinel resources."
   type        = string
+  default     = "03e3cf50-0d2d-4863-83a7-cc3498df7c81"
 }
 
 variable "tenant_id" {
@@ -23,13 +24,13 @@ variable "management_group_id" {
 variable "location" {
   description = "Primary region for XDR supporting resources."
   type        = string
-  default     = "australiasoutheast"
+  default     = "eastus"
 }
 
 variable "resource_group_name" {
   description = "Resource group for Sentinel supporting resources."
   type        = string
-  default     = null
+  default     = "Sentinel_Teraform_Deployment"
   nullable    = true
 
   validation {
