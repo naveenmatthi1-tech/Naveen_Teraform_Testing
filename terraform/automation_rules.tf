@@ -13,19 +13,11 @@ locals {
 }
 
 
-# Service principal: Azure Security Insights (Sentinel automation execution identity)
-
-data "azuread_service_principal" "security_insights" {
-  display_name = "Azure Security Insights"
-}
-
-
 # Role: Allow Sentinel to execute playbooks in this resource group
-
 resource "azurerm_role_assignment" "sentinel_playbook_operator" {
   scope                = local.resource_group_id
   role_definition_name = "Microsoft Sentinel Automation Contributor"
-  principal_id         = data.azuread_service_principal.security_insights.object_id
+  principal_id         = var.service_account_object_id
 }
 
 

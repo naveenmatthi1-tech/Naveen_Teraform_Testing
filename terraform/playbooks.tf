@@ -62,7 +62,7 @@ resource "azapi_resource" "sentinel_conn" {
   response_export_values    = []
 
   lifecycle {
-    ignore_changes = [body, output]
+    ignore_changes = [body]
   }
 }
 
